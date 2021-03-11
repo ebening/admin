@@ -1,0 +1,171 @@
+.toast-container {
+    width: 280px;
+    z-index: 9999;
+}
+
+* html .toast-container {
+    position: absolute;
+}
+
+.toast-item {
+    height: auto;
+
+/*  background	: #ffffff !important;
+    background	: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%) !important;
+    background	: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)) !important;
+    background	: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%) !important;
+    background	: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%) !important;
+    background	: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%) !important;
+    background	: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%) !important;
+    filter	: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ) !important;*/
+
+    opacity: 0.9;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    display: block;
+    position: relative;
+    margin: 0 0 12px 0;
+}
+
+.toast-item p {
+    text-align: justify;
+    margin-left: 50px;
+}
+
+.toast-item-close {
+    background:url(../../images/toast/close.png);
+    width:32px;
+    height:32px;
+    position: absolute;
+    top:0;
+    right:0;
+    cursor: pointer;
+}
+
+.toast-item-image {
+    width:32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    left: 10px;
+}
+
+.toast-item-image-notice {
+    background:url(../../images/toast/notice.png);
+}
+
+.toast-item-image-success {
+    background:url(../../images/toast/success.png);
+}
+
+.toast-item-image-warning {
+    background:url(../../images/toast/warning.png);
+}
+
+.toast-item-image-error {
+    background:url(../../images/toast/error.png);
+}
+
+
+/**
+ * toast types
+ *
+ * pattern: toast-type-[value]
+ * where 'value' is the real value of the plugin option 'type'
+ *
+*/
+.toast-type-notice {
+    color: #5F6468;
+    border-color: #E9ECF2;
+    background-color: #E9ECF2
+}
+.toast-type-success {
+    color: #333333;
+    border-color: #acdc79;
+    background-color: #d3ecba
+}
+/* ORIGINAL CSS
+.toast-type-success {
+    color: white;
+    border-color: #8AD919;
+    background-color: #8AD919
+}
+*/
+
+.toast-type-warning {
+    color: white;
+    border-color: #FFB53E;
+    background-color: #FFB53E;
+}
+
+.toast-type-error {
+    color: white;
+    border-color: #F9243F;
+    background-color: #F9243F;
+}
+
+/**
+ * positions
+ *
+ * pattern: toast-position-[value]
+ * where 'value' is the real value of the plugin option 'position'
+ *
+*/
+.toast-position-top-left {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+}
+
+.toast-position-top-center {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    margin-left: -140px;
+}
+
+.toast-position-top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.toast-position-middle-left {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    margin-top: -40px;
+}
+
+.toast-position-middle-center {
+    position: fixed;
+    left: 50%;
+    margin-left: -140px;
+    margin-top: -40px;
+    top: 50%;
+}
+
+.toast-position-bottom-center {
+    position: fixed;
+    left: 50%;
+    margin-left: -140px;
+    margin-top: -40px;
+    bottom: 5px;
+}
+
+.toast-position-middle-right {
+    position: fixed;
+    right: 20px;
+    margin-left: -140px;
+    margin-top: -40px;
+    top: 50%;
+}
+

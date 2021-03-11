@@ -1,0 +1,84 @@
+/*
+ * Archivo      : security.css
+ * Autor        : Fernando Garcia / Core Generator
+ * Descripcion  : Contiene estilos para el login, logout y pagina de error
+ *
+ */
+ 
+/* Contenedor de login y logo */
+.login-container{
+    width: 1000px;
+    height: auto;
+    margin: 100px auto !important; 
+}
+
+/* Logo */
+.logo-wrapper {
+    text-align: center;
+    vertical-align: middle;
+    width: 300px;
+    height: 230px;
+    float: left;
+}
+
+/* Login */
+.login-wrapper {
+    width: 300px;
+    height: 230px;
+    float: right;
+}
+
+/* Contenedor de etiqueta y textbox */
+.login-pair {
+    display: block;
+    padding: 7px;
+    height: 50px;
+}
+
+/* Bot?n */
+.login-button{
+    float: right;
+    margin-right: 7px !important;
+}
+
+/* Link */
+.login-link {
+    float: left;
+    font-size: 12px !important;
+    margin-top: 5px;
+}
+
+/* Ayuda de login y recuperar contrasena */
+.login-ayuda {
+    font-size: 11px; 
+    padding: 7px; 
+    text-align: justify;
+    border-bottom: 1px dotted gray;
+}
+
+.error-container {
+    width: 400px;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.error-titulo {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px;
+    text-align: center;
+    border-bottom: 1px dotted gray;
+}
+
+.error-mensaje {
+    text-align: center;
+    margin: 40px;
+}
+
+.error-link {
+    width: 100px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+

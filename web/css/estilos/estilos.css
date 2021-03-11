@@ -1,0 +1,775 @@
+/* 
+ * Estilos para elemento del formulario.
+ * Generado con CoreGenerator Webapp.
+*/
+
+/* 
+ * Barra de titulo de una seccion 
+ * Muestra el nombre del formulario..
+*/
+.titulo {
+    /* Posicion */
+    position        : relative;
+    /*  Tamano */
+    width           : 100%;
+    /*height          : 29px;*/
+    /* Vista */
+    display         : block;
+    border-top      : none !important;
+    border-left     : none !important;
+    border-right    : none !important;
+    border-bottom   : 1px solid #C4C4C4 !important;
+}
+
+.title-section {
+    /*  Tamano */
+    width           : 100%;
+    height          : 24px;
+    /* Vista */
+    display         : block;
+    font-size       : 16px;
+    font-weight     : bold;
+    font-variant    : small-caps;
+    color           : #FFFFFF;
+    background-color: #C4C4C4;
+    font-family     : Arial,sans-serif; 
+    text-shadow     : 0 1px 0px rgb(0, 0, 0);
+    padding-top: 4px;
+}
+
+/* Body */
+.body {
+    /* Vista */
+    background  : #ffffff; /* Old browsers */
+    background  : -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #f9f9f9 100%); /* FF3.6+ */
+    background  : -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9)); /* Chrome,Safari4+ */
+    background  : -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#f9f9f9 100%); /* Chrome10+,Safari5.1+ */
+    background  : -o-radial-gradient(center, ellipse cover,  #ffffff 0%,#f9f9f9 100%); /* Opera 12+ */
+    background  : -ms-radial-gradient(center, ellipse cover,  #ffffff 0%,#f9f9f9 100%); /* IE10+ */
+    background  : radial-gradient(ellipse at center,  #ffffff 0%,#f9f9f9 100%); /* W3C */
+    filter      : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f9f9f9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    font-size   : 12px;
+    font-family : Arial,sans-serif;
+}
+
+.ajax-loader-big {
+    display     : block;
+    width       : 66px;
+    height      : 66px;
+    background-image: url(../../images/ajax-loader-big.gif);
+    position    : absolute;
+    left        : 40%;
+    top         : 45%;
+}
+
+.no-scrollbar {
+    overflow    : hidden;
+}
+
+.b-none {
+    border: none !important;
+}
+.pair-full {
+    /* Vista */
+    display         : block;
+    /* Posicion */
+    margin-bottom   : 5px;
+    /* Tamano */
+    width           : 100%;
+}
+
+.textbox-display {
+    margin-top      : 3px;
+    border          : none;
+    color           : #707070;
+    background-color: transparent;
+}
+
+.one-line-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.textarea-display {
+    border          : none;
+    color           : #707070;
+    background-color: transparent;
+    width           : 95.8%;
+    height          : 30px;
+    resize          : none;
+    font-size       : 13px;
+}
+
+.td-etiqueta {
+    width: 150px;
+}
+.td-etiqueta-b {
+    width: 200px;
+}
+
+.td-input {
+    width: 260px;
+}
+
+.td-etiqueta-small {
+    width: 18px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 48%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.border {
+    border: 1px solid #C4C4C4;
+    border-radius: 3px;
+}
+
+.text-to-right {
+    text-align: right !important;
+}
+
+.center {
+    margin  : 0 auto;
+}
+
+.profile-pic {
+    display         : block;
+    width           : 80px;
+    height          : 80px;
+    border          : 1px solid #C4C4C4;
+    box-shadow      : 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.27);
+    -moz-box-shadow:    0px 3px 2px 0px rgba(0, 0, 0, 0.27);
+    box-shadow:         0px 3px 2px 0px rgba(0, 0, 0, 0.27);
+}
+
+.chart-title {
+    /* Vista */
+    display         : block;
+    /* Fuente */
+    font-size       : 20px;
+    font-weight     : bold;
+    text-align      : center; 
+}
+
+.title-text {
+    /* Vista */
+    display         : block;
+    width           : 50%;
+    height          : 48px;
+    line-height     : 48px;
+    color           :#5F6468;
+    float: left;
+    /* Posicion */
+    /*position        : absolute;*/
+    /*left            : 5px;*/
+    /*bottom          : 6px;*/
+    /* Fuente */
+    font-size       : 16px;
+    text-indent     : 8px; 
+    /*font-weight     : bold;*/
+    /*font-variant    : small-caps;*/
+    /* text-shadow     : 0 1px 0px rgb(0, 0, 0); */
+}
+
+/* 
+ * Contenedor de botones
+ * Contiene los botones del formulario: Nuevo, Guardar, etc.
+*/
+.button-container {
+    /* Vista */
+    display         : block;
+    float           : right;
+    /* Posicion */
+    position        : absolute;
+    right           : 5px;
+    top             : 5px;
+}
+
+/* 
+ * Contenedor de botones
+ * Contiene los botones para formularios embebidos
+*/
+.button-container-detalle {
+    /*width       : 100%;*/
+    display     : block;
+    margin-top  : 2px;
+    float: right;
+}
+
+.button-detalle {
+    float: right;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button-custom {
+    /*Vista*/ 
+    display         : block;
+    cursor          : pointer;
+    /*color           : #fff;*/
+    background-color: #EDF0F5;
+    border-radius   : 3px;
+    margin-left     : 4px; 
+    /*Posicion*/ 
+    float           : left;
+    /*Tamano*/ 
+    width           : 120px;
+    height          : 38px;
+    font-size       : 14px;
+    line-height     : 38px; 
+    text-align      : center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*.button-custom:hover {
+    border-radius   : 3px;
+}*/
+
+/* Contenedor de elementos de formulario.
+ * Contiene todos los elementos .pair
+*/
+.pair-wrap {
+    /* Vista */
+    display         : block;
+    /* Tamano */
+    width           : 99%;
+    /* Posicion */
+    margin          : 0 auto;
+}
+
+/* Contenedor de una etiqueta y un elemento 
+ * Contiene una etiqueta de texto y algun elemento input (textarea, select)
+*/
+.pair, 
+.pair5,
+.pair10,
+.pair20,   
+.pair30, 
+.pair40, 
+.pair50, 
+.pair60, 
+.pair70, 
+.pair80, 
+.pair90, 
+.pair100, 
+.pair150, 
+.pair200,
+.pair300,
+.pair400,
+.pair500  {
+    /* Vista */
+    display         : block;
+    /* Posicion */
+    float           : left;
+    margin-bottom   : 5px;
+    /* Tamano */
+    min-height      : 70px;
+}
+.pair { width: 33%}
+.pair5 { width: 5px;}
+.pair10 { width: 10px;}
+.pair20 { width: 20px;}
+.pair30 { width: 30px;}
+.pair40 { width: 40px;}
+.pair50 { width: 50px;}
+.pair60 { width: 60px;}
+.pair70 { width: 70px;}
+.pair80 { width: 80px;}
+.pair90 { width: 90px;}
+.pair100 { width: 100px;}
+.pair150 { width: 150px;}
+.pair200 { width: 200px;}
+.pair300 { width: 300px;}
+.pair400 { width: 400px;}
+.pair500 { width: 500px;}
+
+/* 
+ * Contenedor de una etiqueta y un elemento 
+ * Contiene una etiqueta de texto y algun elemento input (textarea, select)
+*/
+.pair-detalle {
+    /* Vista */
+    display         : block;
+    /* Posicion */
+    float           : left;
+    margin-bottom   : 5px;
+    /* Tamano */
+    width           : 16.5%;
+    min-height      : 50px;
+}
+
+/* 
+ * Contenedor de elemento option-transfer
+*/
+.pair-optiontransfer {
+    /* Vista */
+    display         : block;
+    /* Posicion */
+    float           : left;
+    margin-bottom   : 5px;
+    /* Tamano */
+    width           : 66%;
+    min-height      : 50px;
+}
+
+.optiontransfer-column {
+    /* Vista */
+    display         : block;
+    /* Posicion */
+    float           : left;
+}
+
+.optiontransfer-column-middle {
+    /* Vista */
+    display         : block;
+    /* Posicion */
+    float           : left;
+    margin-top      : 55px;
+    margin-left     : 5px; 
+    width           : 34px;
+}
+
+.optiontransfer-bottom-button-container {
+    width           : 95px;
+    margin          : 4px auto;
+}
+
+/* Contenedor de una etiqueta y un elemento oculto
+ * Contiene una etiqueta de texto y algun elemento input (textarea, select, checkbox, etc.)
+*/
+.pair-hidden {
+    /* Vista */
+    display         : none;
+}
+
+.etiqueta {
+    /* Posicion */
+    margin          : 5px 0px;
+    display         : block; 
+
+}
+
+.etiqueta-checkbox {
+    display         : block;
+    float           : left;
+    margin-top      : 3px;
+    text-indent     : 4px; 
+}
+
+.etiqueta-small {
+    margin          : 5px 0px;
+    display         : inline-block;
+}
+
+/* 
+ * Estilo de etiqueta
+ * Es el estilo del texto de la etiqueta
+*/
+.etiqueta, .etiqueta-checkbox, .etiqueta-small {
+    /* Fuente */
+    font-family     : Arial,sans-serif;
+    font-size       : 14px;
+    font-weight     : bold;
+    text-shadow     : 0 1px 0 rgba(255, 255, 255, 1);
+    text-align      : left;
+    color           : #5F6468;
+}
+
+/* 
+ * Estilo de textbox 
+*/
+.textbox {
+    /* Vista */
+    background      : none repeat scroll 0% 0% white;
+    /* Posicion */
+    padding         : 4px 4px;
+    /* Fuente */
+    text-align      : left;
+    font-size       : 14px;
+    /* Tamano */
+    width           : 80%;
+    height          : 36px;
+}
+
+/* 
+ * Estilo de textbox upload
+*/
+.textbox-upload {
+    /* Vista */
+    background      : none repeat scroll 0% 0% white;
+    /* Posicion */
+    padding         : 1px 4px;
+    /* Fuente */
+    text-align      : left;
+    font-size       : 13px;
+    /* Tamano */
+    width           : 63%;
+    height          : 20px;
+}
+
+/* 
+ * Estilo de textbox-colorpicker
+*/
+.textbox-colorpicker {
+    /* Vista */
+    float           : left;
+    margin-left     : 5px; 
+    /* Tamano */
+    width           : 83%;
+}
+
+/* 
+ * Estilo de select 
+*/
+.select {
+    /* Vista */
+    background      : none repeat scroll 0% 0% white;
+    /* Posicion */
+    padding         : 2px 2px;
+    /* Tamano */
+    width           : 83%;
+    height          : 36px;
+    /* Fuente */
+    font-size       : 14px;
+    text-align      : left;
+}
+
+/*.select option {
+    border-bottom: 1px solid #F4F4F4;
+    border-right: 1px solid #C4C4C4;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-indent: 8px;
+    background: url(../../images/option-arrow.png) no-repeat left;
+    cursor: pointer;
+}*/
+
+.pair-checkbox {
+    /* Posicion */
+    position        : relative;
+    top             : 28px;
+}
+
+/* Contenedor de una etiqueta y un elemento 
+ * Contiene una etiqueta de texto y algun elemento input (textarea, select)
+*/
+.pair-textarea {
+    /* Vista */
+    display         : block;
+    /* Posicion */
+    float           : left;
+    margin-bottom   : 10px;
+    /* Tamano */
+    width           : 100%;
+    min-height      : 60px;
+}
+
+/* 
+ * Estilo de textarea 
+*/
+.textarea {
+    /* Vista */
+    background      : none repeat scroll 0% 0% white;
+    /* Posicion */
+    padding         : 4px;
+    /* Tamano */
+    width           : 50%;
+    height          : 80px;
+    resize          : none;
+    /* Fuente */
+    font-size       : 14px;
+}
+
+/* 
+ * Contenedor del grid
+ * Elemento que cotiene el grid
+*/
+.grid-container {
+    /* Vista */
+    overflow        : auto;
+    /* Tamano */
+    width           : 99%;
+    /* Posicion */
+    margin          : 5px auto;
+    
+}
+
+.checkbox {
+    float: left;
+}
+
+/* 
+ * Contenedor progress bar 
+ * Contenedor del mensaje que contiene el progress bar
+*/
+.cargando-container {
+    /* Vista */
+    z-index         : 99999;
+    box-shadow      : 0 0 10px #888888;
+    /* Tamano */
+    width           : 250px;
+    /* Posicion */
+    margin          : 0 auto;
+    padding         : 20px;
+}
+
+/* 
+ * Etiqueta de progress bar
+*/
+.cargando-label {
+    /* Fuente */
+    font-weight     : bold;
+    text-shadow     : 1px 1px 0 #fff;
+    text-align      : center;
+}
+
+/* 
+ * Contenedor usuado en el plugin jsTree de usuarioPagina.jsp 
+*/
+.accesos-container {
+    /* Vista */
+    overflow        : auto;
+    /* Tamano */
+    width           : 400px;
+    height          : 400px;
+    /* Posicion */
+    margin          : 20px 5px;
+}
+
+/* 
+ * Textos usuados en el plugin jsTree de usuarioPagina.jsp 
+*/
+.accesos {
+    /* Fuente */
+    font-size       : 12px;
+    font-family     : Arial,sans-serif;
+}
+
+/* 
+ * CSS fixes 
+ * Corrige algunas propiedades que el tema de jQuery
+*/
+.ui-widget {
+    font-size: 12px !important;
+}
+
+.icon-fix {
+    display : inline-block !important; 
+    margin  : 4px 4px -3px 0;
+}
+
+.ui-icon-center {
+    display         : block;
+    width           : 16px;
+    margin          : 0 auto;
+}
+
+.new-window {
+    cursor  : pointer;
+}
+
+.upload-button-container {
+    position: relative;
+    float   : right;
+    margin-right: 28px;
+}
+
+/* Estilos pseudo-hack para compatibilidad con IE */
+.upload-file {
+    /* Vista */
+    opacity : 0;
+    filter  : alpha(opacity=0);
+    overflow: hidden;
+    z-index : 99; 
+    /* Posicion */
+    position: absolute;
+    left    : 0;
+    top     : 0;
+    margin  : 0; 
+    padding : 0;
+    /* Tamano */
+    width   : 32px; 
+    height  : 25px;
+}
+
+/*
+ * Efecto de sombra para algunos contenedores
+*/
+.contenedor-sombra {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(170, 170, 170, 0.7);
+}
+
+/* Estilos generales */
+.textbox, .textbox-upload, .select, .textarea, .textbox-colorpicker, .select-optiontransfer {
+    border          : 1px solid #C4C4C4;
+    color           : #707070;
+    border-radius   : 3px; 
+}
+
+/* Efectos */
+.textbox, .textbox-upload, .select, .textarea, .textbox-colorpicker {
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/* Efectos */
+.textbox:focus, .textbox-upload:focus, .select:focus, .textarea:focus, .textbox-colorpicker:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+/* Gradient 1 */
+.gradient1 {
+    background	: #ffffff !important;
+    background	: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%) !important;
+    background	: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)) !important;
+    background	: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%) !important;
+    background	: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%) !important;
+    background	: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%) !important;
+    background	: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%) !important;
+    filter		: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ) !important;
+}
+
+/* Linea horizontal */
+.divisor {
+    border-bottom: 1px solid #C4C4C4; 
+    margin-top   : 12px;
+    margin-bottom: 12px; 
+}
+.divisor-small-margin {
+    border-bottom: 1px solid #C4C4C4; 
+    margin-top   : 2px;
+    margin-bottom: 2px; 
+}
+
+/* Clase utilizada para mover el menu horizontal cuando hay scroll */
+.fixed-menu { 
+    z-index: 99; 
+    position: fixed !important;
+    top: 0;
+    -webkit-box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow:    0px 5px 3px 0px rgba(0, 0, 0, 0.25);
+    box-shadow:         0px 5px 3px 0px rgba(0, 0, 0, 0.25);
+    width: 1200px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.radio-label, .checkbox-label {
+    color               : #5F6468;
+    text-shadow         : 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.autocomplete-list-result {
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    z-index: 9999;
+    position: absolute;
+    padding: 4px;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.autocomplete-show-all {
+    cursor: pointer;
+}
+
+.autocomplete-list-result-item {
+    /* Tamaño */
+    cursor: pointer;
+    height: 18px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid transparent;
+    /* Efectos de texto */
+    font-weight     : normal;
+    text-overflow   : ellipsis;
+    white-space     : nowrap;
+    overflow        : hidden;
+}
+
+.base-desglose {
+    display: none;
+}
+
+.desglose {
+    min-height: 24px;
+}
+
+#impresora-default {
+    height: 21px;
+    margin-top: 5px;
+    padding-top: 5px;
+    text-indent: 4px;
+}
+
+.m-root {
+    display: block;
+    border: none !important;
+}
+.m-item {
+    display: block;
+    min-width: 200px;
+    font-size: 14px;
+}
+li.ui-menu-item {
+    color: #30A5FF;
+}
+.ui-state-focus {
+    color: #30A5FF;
+}
+
+.m-item-icon, .m-item-overflow {
+    display: block;
+    float: left;
+}
+.m-item-name {
+    display: block;
+    width: calc(100% - 80px);
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fas, .m-item-overflow {
+    display: block;
+    width: 40px;
+    text-align: center;
+}
+.m-item, .fas, .m-item-overflow {
+    height: 40px !important;
+    line-height: 40px !important;
+}

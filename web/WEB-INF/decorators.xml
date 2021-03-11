@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/jsp/decorators/plantilla">
+    <!-- Any urls that are excluded will never be decorated by Sitemesh -->
+    <excludes>
+        <pattern>/*.htm*</pattern>
+        <pattern>*.html</pattern>
+    </excludes>
+    <decorator name="plantilla02" page="plantilla02.jsp">
+        <pattern>/index.action*</pattern>
+        <pattern>*/admon/*</pattern>
+        <pattern>*/reportes/*</pattern>
+    </decorator>
+</decorators>
+

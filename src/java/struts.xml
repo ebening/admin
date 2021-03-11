@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+'-//Apache Software Foundation//DTD Struts Configuration 2.0//EN'
+'http://struts.apache.org/dtds/struts-2.0.dtd'>
+<struts>
+    <constant name='struts.locale' value='es_MX'/>
+    <constant name='struts.ui.theme' value='simple'/>
+    <constant name="struts.custom.i18n.resources" value="com.admon.model.resources.etiquetas"/>
+    <constant name='struts.devMode' value='true' />
+    <constant name='struts.configuration.xml.reload' value='true'/>
+    <include file='default.xml'/>
+    <include file='admon.xml'/>
+</struts>
+

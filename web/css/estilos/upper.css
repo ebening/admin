@@ -1,0 +1,182 @@
+/*
+ * Archivo      : upper.css
+ * Autor        : Fernando Garcia / Core Generator
+ * Descripcion  : Contiene estilos para el encabezado, informacion de sesion,
+ *                menu horizontal e informacion de minimizada de sesion.
+*/
+
+/* Encabezado de la pagina */
+.headerr {
+    /* Tamano */
+    width                       : 1198px;
+    height                      : 60px;
+    /* Vista */
+    display                     : block;
+    border                      : 1px solid #C4C4C4;
+    border-bottom-left-radius   : 0 !important;
+    border-bottom-right-radius  : 0 !important;
+    border-bottom               : 3px solid #C4C4C4 !important;
+    background                  : url("../../images/background/pattern_8.png");
+    background-color            : #F8F8F8 !important;
+
+}
+
+/* Menu horizontal */
+.menuHorizontal {
+    /* Vista */
+    display             : block;
+    border              : 1px solid #C4C4C4;
+    /* Tamano */
+    width               : 1198px;
+    height              : 27px;
+    /* Posicion */
+    padding             : 2px 0;
+    position            : relative;
+}
+
+.menu-horizontal {
+    position    : absolute;
+    top         : 2px;
+    left        : 64px;
+}
+
+/* Corrige los bordes que el skin que jQuery aplica */
+.menuHorizontalFix {
+    /* Vista */
+    border-top-right-radius : 0 !important;
+    border-top-left-radius  : 0 !important;
+    border-top              : none !important;
+}
+
+/* Elementos de menu */
+.menuHorizontal a {
+    /* Fuente */
+    color               : #000000;
+    text-shadow         : 0 1px 0 rgba(255, 255, 255, 1);
+    text-decoration     : none;
+}
+
+/* Logo del encabezado */
+.logo-wrapper-small {
+    margin-top      : 2px;
+    float           : left;
+}
+
+/* Nombre de la aplicacion */
+.app-name {
+    margin-top      : 15px;
+    margin-left     : 5px;
+    float           : left;
+    text-shadow     : 0 1px 0 rgba(255, 255, 255, 1);
+    color           : #757575;
+    font-family     : Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+    font-size       : 24px;
+}
+
+/* Contenedor de la informacion de sesion */
+.sesion-container {
+    margin-top      : 8px;
+    height          : 43px;
+    position        : relative;
+    float           : right;
+
+}
+
+/* Botones de sesion en vista maximizada */
+#logout {
+    position        : absolute;
+    right           : 2px;
+    top             : 4px;
+    text-align      : left;
+    width           : 50px;
+}
+
+#logout-small {
+    position        : absolute;
+    right           : 21px;
+    top             : 4px;
+}
+
+.icon-white {
+    background-color: #f4f4f4;
+    border-radius: 3px;
+}
+
+/* Botones de sesion en vista maximizada */
+#minimize {
+    position        : absolute;
+    right           : 2px;
+    top             : 25px;
+}
+
+#maximize-small {
+    position        : absolute;
+    right           : 2px;
+    top             : 4px;
+}
+
+#logout, #minimize, #logout-small, #maximize-small {
+    cursor          : pointer;
+}
+
+.sesion-container-small, .sesion-container {
+    width           : 200px;
+    border          : 1px solid #c4c4c4 !important;
+    margin-right    : 2px;
+    color           : #f4f4f4;
+    text-shadow     : 0 1px 0 rgba(0, 0, 0, 1) !important;
+    box-shadow      : 0 1px 0px rgba(255, 255, 255, 0.9) inset, 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.menuHorizontal {
+    /* Generated with: http://www.colorzilla.com/gradient-editor/*/
+    background      : #f6f6f6; /* Old browsers */
+    background      : -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 16%, #e1e1e1 95%, #f6f6f6 100%) !important; /* FF3.6+ */
+    background      : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(16%,#f1f1f1), color-stop(95%,#e1e1e1), color-stop(100%,#f6f6f6)) !important; /* Chrome,Safari4+ */
+    background      : -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 16%,#e1e1e1 95%,#f6f6f6 100%) !important; /* Chrome10+,Safari5.1+ */
+    background      : -o-linear-gradient(top,  #ffffff 0%,#f1f1f1 16%,#e1e1e1 95%,#f6f6f6 100%) !important; /* Opera 11.10+ */
+    background      : -ms-linear-gradient(top,  #ffffff 0%,#f1f1f1 16%,#e1e1e1 95%,#f6f6f6 100%) !important; /* IE10+ */
+    background      : linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 16%,#e1e1e1 95%,#f6f6f6 100%) !important; /* W3C */
+    filter          : progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#e1e1e1',GradientType=0 ) !important;
+}
+
+/* Fecha de sesion */
+.session-date {
+    padding-top     : 1px;
+    font-weight     : bold;
+}
+
+/* Nombre de usuario */
+.username-small, .username-long {
+    font-weight     : normal;
+    text-overflow   : ellipsis;
+    white-space     : nowrap;
+    overflow        : hidden;
+}
+
+.username-long {
+    padding-top: 1px;
+    width: 120px;
+}
+
+.username-small {
+    display         : inline-block;
+    float           : left;
+    width           : 120px;
+    margin-top      : 5px;
+}
+
+/* VISTA DE SESION MINIMIZADA */
+.sesion-container-small {
+    position    : relative;
+    float       : right;
+    height      : 25px;
+}
+
+.icon-user {
+    display         : inline-block;
+    float           : left;
+    margin-top      : 4px;
+}
+
+

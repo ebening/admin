@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.admon.entity.reportes.Evento" table="EVENTO">
+        <id name="eventoId" type="java.lang.Integer">
+            <column name="EVENTO_ID"/>
+            <generator class="increment"/>
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE_EVENTO"/>
+        </property>
+        <property name="organizacionId" type="java.lang.Integer">
+            <column name="ORGANIZACION_ID"/>
+        </property>
+    </class>
+</hibernate-mapping>

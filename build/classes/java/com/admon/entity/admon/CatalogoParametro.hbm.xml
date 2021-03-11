@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.admon.entity.admon.CatalogoParametro" table="CATALOGO_PARAMETRO">
+        <id name="catalogoParametroId" type="java.lang.Integer">
+            <column name="CATALOGO_PARAMETRO_ID"/>
+            <generator class="increment"/>
+        </id>
+        <property name="catalogoId" type="java.lang.Integer">
+            <column name="CATALOGO_ID"/>
+        </property>
+        <property name="organizacionId" type="java.lang.Integer">
+            <column name="ORGANIZACION_ID"/>
+        </property>
+        <property name="clave" type="java.lang.String">
+            <column name="CLAVE"/>
+        </property>
+        <property name="valor" type="java.lang.String">
+            <column name="VALOR"/>
+        </property>
+        <property name="orden" type="java.lang.Integer">
+            <column name="ORDEN"/>
+        </property>
+        <property name="visible" type="java.lang.Boolean">
+            <column name="VISIBLE"/>
+        </property>
+        <property name="descripcion" type="java.lang.String">
+            <column name="DESCRIPCION"/>
+        </property>
+        
+        
+        <property name="estatusId" type="java.lang.Integer">
+            <column name="ESTATUS_ID"/>
+        </property>
+        <property name="eliminadoId" type="java.lang.Integer">
+            <column name="ELIMINADO_ID"/>
+        </property>
+        <property name="creacionFecha" type="timestamp">
+            <column name="CREACION_FECHA"/>
+        </property>
+        <property name="creacionUsuario" type="java.lang.Integer">
+            <column name="CREACION_USUARIO"/>
+        </property>
+        <property name="modificacionFecha" type="timestamp">
+            <column name="MODIFICACION_FECHA"/>
+        </property>
+        <property name="modificacionUsuario" type="java.lang.Integer">
+            <column name="MODIFICACION_USUARIO"/>
+        </property>
+    </class>
+</hibernate-mapping>

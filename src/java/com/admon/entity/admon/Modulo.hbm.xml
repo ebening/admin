@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.admon.entity.admon.Aplicacion" table="SEGURIDAD_MODULO">
+        <id name="moduloId" type="java.lang.Integer">
+            <column name="MODULO_ID"/>
+            <generator class="sequence">
+                <param name="sequence">MODULO_SEQ</param> 
+            </generator>
+        </id>
+        <property name="aplicacionId" type="java.lang.Integer">
+            <column name="APLICACION_ID"/>
+        </property>
+        <property name="organizacionId" type="java.lang.Integer">
+            <column name="ORGANIZACION_ID"/>
+        </property>
+        <property name="url" type="string">
+            <column name="URL"/>
+        </property>
+        <property name="orden" type="java.lang.Integer">
+            <column name="ORDEN"/>
+        </property>
+        <property name="nombreAccion" type="string">
+            <column name="NOMBRE_ACCION"/>
+        </property>
+        <property name="nombreObjeto" type="string">
+            <column name="NOMBRE_OBJETO"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION"/>
+        </property>
+        <property name="htmlId" type="string">
+            <column name="HTML_ID"/>
+        </property>
+        <property name="nombre" type="string">
+            <column name="NOMBRE"/>
+        </property>
+        <property name="nombreIngles" type="string">
+            <column name="NOMBRE_INGLES"/>
+        </property>
+        <property name="creacionFecha" type="timestamp">
+            <column name="CREACION_FECHA"/>
+        </property>
+        <property name="creacionUsuario" type="java.lang.Integer">
+            <column name="CREACION_USUARIO"/>
+        </property>
+        <property name="modificacionFecha" type="timestamp">
+            <column name="MODIFICACION_FECHA"/>
+        </property>
+        <property name="modificacionUsuario" type="java.lang.Integer">
+            <column name="MODIFICACION_USUARIO"/>
+        </property>
+        <property name="estatusId" type="java.lang.Integer">
+            <column name="ESTATUS_ID"/>
+        </property>
+        <property name="eliminadoId" type="java.lang.Integer">
+            <column name="ELIMINADO_ID"/>
+        </property>
+        <property name="icono" type="string">
+            <column name="ICONO"/>
+        </property>
+        <property name="colorTitulo" type="string">
+            <column name="COLOR_TITULO"/>
+        </property>
+        <property name="colorInfo" type="string">
+            <column name="COLOR_INFO"/>
+        </property>
+        <property name="colorMenu" type="string">
+            <column name="COLOR_MENU"/>
+        </property>
+    </class>
+</hibernate-mapping>
+

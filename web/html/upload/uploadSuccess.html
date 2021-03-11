@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript">
+function uploadSuccess() {
+try {
+window.parent.showUploadSuccess();
+} catch (e) {
+}
+}
+uploadSuccess();
+</script>
+</head>
+<body>
+<!-- Esta pantalla es regresada al usuario cuando ocurre se efectuo correctamente el upload de archivos -->
+<!-- La pantalla es enviada a un iframe dentro del jsp del upload de archivos -->
+<!-- La pantalla manda llamar una función en el parent a modo de callback al terminar de realizar el upload -->
+<div>upload success</div>
+</body>
+</html>
+

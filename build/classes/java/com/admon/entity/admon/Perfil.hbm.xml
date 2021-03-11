@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.admon.entity.admon.Perfil" table="PERFIL">
+        <id name="perfilId" type="java.lang.Integer">
+            <column name="PERFIL_ID"/>
+            <generator class="increment"/>
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE"/>
+        </property>
+        <property name="estatusId" type="java.lang.Integer">
+            <column name="ESTATUS_ID"/>
+        </property>
+        <property name="eliminadoId" type="java.lang.Integer">
+            <column name="ELIMINADO_ID"/>
+        </property>
+        <property name="creacionFecha" type="timestamp">
+            <column name="CREACION_FECHA"/>
+        </property>
+        <property name="creacionUsuario" type="java.lang.Integer">
+            <column name="CREACION_USUARIO"/>
+        </property>
+        <property name="modificacionFecha" type="timestamp">
+            <column name="MODIFICACION_FECHA"/>
+        </property>
+        <property name="modificacionUsuario" type="java.lang.Integer">
+            <column name="MODIFICACION_USUARIO"/>
+        </property>
+    </class>
+</hibernate-mapping>
+

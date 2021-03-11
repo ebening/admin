@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.admon.entity.admon.Comision" table="COMISION">
+        <id name="comisionId" type="java.lang.Integer">
+            <column name="COMISION_ID"/>
+            <generator class="increment"/>
+        </id>
+        <property name="organizacionId" type="java.lang.Integer">
+            <column name="ORGANIZACION_ID"/>
+        </property>
+        <property name="clasificacionContraId" type="java.lang.Integer">
+            <column name="CLASIFICACION_CONTRA_ID"/>
+        </property>
+        <property name="subclasificacionContraId" type="java.lang.Integer">
+            <column name="SUBCLASIFICACION_CONTRA_ID"/>
+        </property>
+        <property name="nombreContraId" type="java.lang.Integer">
+            <column name="NOMBRE_CONTRA_ID"/>
+        </property>
+        <property name="valor" type="java.lang.Double">
+            <column name="VALOR"/>
+        </property>
+        <property name="estatusId" type="java.lang.Integer">
+            <column name="ESTATUS_ID"/>
+        </property>
+        <property name="eliminadoId" type="java.lang.Integer">
+            <column name="ELIMINADO_ID"/>
+        </property>
+        <property name="creacionFecha" type="timestamp">
+            <column name="CREACION_FECHA"/>
+        </property>
+        <property name="creacionUsuario" type="java.lang.Integer">
+            <column name="CREACION_USUARIO"/>
+        </property>
+        <property name="modificacionFecha" type="timestamp">
+            <column name="MODIFICACION_FECHA"/>
+        </property>
+        <property name="modificacionUsuario" type="java.lang.Integer">
+            <column name="MODIFICACION_USUARIO"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,134 @@
+/* 
+ * Estilos de layout
+ * Generado con CoreGenerator Webapp.
+*/
+
+/* Body */
+body {
+    /* Vista */
+    background-color    : #ffffff;
+    /*background          : url("../../images/background/background1.png");*/
+    margin              : 0;
+    padding             : 0;
+    /* Fuente */
+    font-size           : 14px;
+    font-family         : Arial,sans-serif;
+    background-attachment: fixed;
+}
+
+/* Contenedor de .header, .menu-horizontal, .middle y .footer */
+.view {
+    display             : block;
+    background-color    : #ffffff;
+    /*width               : 1200px;*/
+    width               : 100%;
+    /*margin              : 7px auto;*/
+}
+
+/* Contenedor de sidebar-left, .form-wrap y .sidebar-right */
+.middle {
+    /* Vista */
+    display             : block;
+    background-color    : #ffffff;
+    /* Posicion */
+    /* margin-top          : 5px;*/
+    /* Tamano */
+    width               : 100%;
+}
+
+/* 
+ * Menu izquierdo
+*/
+.sidebar-left {
+    /* Vista */
+    display             : block;
+    background-color    : white;
+    /* Posicion */
+    float               : left;
+    /* Tamano */
+    width               : 200px;
+    min-height          : 100px;
+}
+
+/* Contenedor de formulario */
+.form-wrap {
+    /* Vista */
+    display             : block;
+    background          : none repeat scroll 0 0 #fff !important;
+    /* Tamano */
+    width               : calc(100% - 40px);
+    margin              : 20px auto;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* mitad de contenedor */
+
+.form-wrap-cuarenta {
+    /* Tamano */
+    width               : calc(40% - 10px);
+    /*margin              : 20px auto;*/
+    /* Posicion */
+    float               : right;
+    margin-top          : 4px;
+    margin-right        : 8px;
+}
+
+.form-wrap-sesenta {
+    /* Tamano */
+    width               : calc(60% - 10px);
+    /*margin              : 20px auto;*/
+    margin-left         : 3px;
+    
+    margin-top          : 4px;
+    /* Posicion */
+    float               : left;
+    height              : 250px; 
+}
+
+.tree-container {
+    overflow-y          : scroll;
+    overflow-x          : hidden;    
+    height              : 200px; 
+}
+.tree-container-title {
+    margin-bottom: 8px; 
+    height: 38px; 
+    line-height: 38px; 
+    text-indent: 4px;
+    color:#5F647C;
+    font-weight: bold;
+}
+.tree-container {
+    overflow-y          : scroll;
+    overflow-x          : hidden;    
+    height              : 200px; 
+}
+/* Menu derecho
+*/
+.sidebar-right {
+    /* Vista */
+    display             : block;
+    background-color    : #F1F4F7;
+    border-top          : medium none;
+    /* Posicion */
+    /*margin-top          : 27px;*/
+    float               : left;
+    /* Tamano */
+    width               : calc(100% - 200px);
+    min-height          : 100px;
+}
+
+.index {
+    min-height: 400px;
+}
+
+.foot {
+    text-align          : center;
+    height              : 36px;
+    line-height         : 36px;
+    width               : 100% !important;
+    font-size           : 11px;
+}
+

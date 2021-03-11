@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- Mapeo de los procedures/funciones de ORGANIZACION_PKG -->
+    <!-- Procedure DESPLIEGA_ADMON_PRC -->
+    <sql-query name="organizacionGenerarPRC" callable="true">
+        <return class="com.admon.pkg.entity.OrganizacionGenerarRS"/>
+        {call ORGANIZACION_PKG.DESPLIEGA_ADMON_PRC(?, :organizacionId)}
+    </sql-query>
+    <!-- Procedure DESPLIEGA_VENTAS_PRC -->
+<!--    <sql-query name="organizacionGenerarVtaPRC" callable="true">
+        <return class="com.admon.pkg.entity.OrganizacionGenerarRS"/>
+        { call ORGANIZACION_PKG.DESPLIEGA_VENTAS_PRC(?, :organizacionId)}
+    </sql-query>-->
+    
+</hibernate-mapping>

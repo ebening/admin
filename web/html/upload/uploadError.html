@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript">
+function uploadError() {
+try {
+window.parent.showUploadError();
+} catch (e) {
+}
+}
+uploadError();
+</script>
+</head>
+<body>
+<!-- Esta pantalla es regresada al usuario cuando ocurre un error al hacer uploads de archivos -->
+<!-- La pantalla es enviada a un iframe dentro del jsp del upload de archivos -->
+<!-- La pantalla manda llamar una función en el parent para mostrar un mensaje de error -->
+<div>upload error</div>
+</body>
+</html>
+

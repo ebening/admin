@@ -1,0 +1,116 @@
+<!DOCTYPE struts PUBLIC
+'-//Apache Software Foundation//DTD Struts Configuration 2.0//EN'
+'http://struts.apache.org/dtds/struts-2.0.dtd'>
+<struts>
+    <package name="index" namespace="/" extends="default">
+        <action name="index" class="com.admon.model.admon.IndexAction">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="seguridad" namespace="/seguridad" extends="default">
+        <action name="perfilUsuario" class="com.admon.model.seguridad.PerfilUsuarioAction">
+            <result name="success">/jsp/seguridad/perfilUsuario.jsp</result>
+        </action>
+    </package>
+
+    <package name="admon" namespace="/admon" extends="default">
+        <action name="download" class="com.admon.model.util.DownloadAction">
+
+            <result name="success" type="stream" >
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">attachment;filename="${file}"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+            <result name="error">/html/download/downloadError.html</result>
+        </action>
+        <action name="exportarPDF" class="com.admon.model.util.ExportarPDFAction">
+            <result name='error'>/jsp/error.jsp</result>
+        </action>
+        <action name="clasificacionContra" class="com.admon.model.admon.ClasificacionContraAction">
+            <result name="success">/jsp/admon/clasificacionContra.jsp</result>
+        </action>
+        <action name="configuracion" class="com.admon.model.admon.ConfiguracionAction">
+            <result name="success">/jsp/admon/configuracion.jsp</result>
+        </action>
+        <action name="configuracionParametro" class="com.admon.model.admon.ConfiguracionParametroAction">
+            <result name="success">/jsp/admon/configuracionParametro.jsp</result>
+        </action>
+        <action name="comision" class="com.admon.model.admon.ComisionAction">
+            <result name="success">/jsp/admon/comision.jsp</result>
+        </action>
+        <action name="estado" class="com.admon.model.admon.EstadoAction">
+            <result name="success">/jsp/admon/estado.jsp</result>
+        </action>
+        <action name="ciudad" class="com.admon.model.admon.CiudadAction">
+            <result name="success">/jsp/admon/ciudad.jsp</result>
+        </action>
+        <action name="nombreContra" class="com.admon.model.admon.NombreContraAction">
+            <result name="success">/jsp/admon/nombreContra.jsp</result>
+        </action>
+        <action name="organizacion" class="com.admon.model.admon.OrganizacionAction">
+            <result name="success">/jsp/admon/organizacion.jsp</result>
+        </action>
+        <action name="organizacionCredencial" class="com.admon.model.admon.OrganizacionCredencialAction">
+            <result name="success">/jsp/admon/organizacionCredencial.jsp</result>
+        </action>
+        <action name="organizacionUsuario" class="com.admon.model.admon.OrganizacionUsuarioAction">
+            <result name="success">/jsp/admon/organizacionUsuario.jsp</result>
+        </action>
+        <action name="operacion" class="com.admon.model.admon.OperacionAction">
+            <result name="success">/jsp/admon/operacion.jsp</result>
+        </action>
+        <action name="pagina" class="com.admon.model.admon.PaginaAction">
+            <result name="success">/jsp/admon/pagina.jsp</result>
+        </action>
+        <action name="pais" class="com.admon.model.admon.PaisAction">
+            <result name="success">/jsp/admon/pais.jsp</result>
+        </action>
+        <action name="perfil" class="com.admon.model.admon.PerfilAction">
+            <result name="success">/jsp/admon/perfil.jsp</result>
+        </action>
+        <action name="perfilPagina" class="com.admon.model.admon.PerfilPaginaAction">
+            <result name="success">/jsp/admon/perfilPagina.jsp</result>
+        </action>
+        <action name="subclasificacionContra" class="com.admon.model.admon.SubclasificacionContraAction">
+            <result name="success">/jsp/admon/subclasificacionContra.jsp</result>
+        </action>
+        <action name="usuario" class="com.admon.model.admon.UsuarioAction">
+            <result name="success">/jsp/admon/usuario.jsp</result>
+        </action>
+		<action name="catalogo" class="com.admon.model.admon.CatalogoAction">
+            <result name="success">/jsp/admon/catalogo.jsp</result>
+        </action>
+        <action name="rol" class="com.admon.model.admon.SeguridadRolAction">
+            <result name="success">/jsp/admon/rol.jsp</result>
+        </action>
+        <action name="aplicacion" class="com.admon.model.admon.AplicacionAction">
+            <result name="success">/jsp/admon/aplicacion.jsp</result>
+        </action>
+        <action name="modulo" class="com.admon.model.admon.ModuloAction">
+            <result name="success">/jsp/admon/modulo.jsp</result>
+        </action>
+        <action name="restricciones" class="com.admon.model.admon.SeguridadRolRestriccionParAction">
+            <result name="success">/jsp/admon/restriccion.jsp</result>
+        </action>
+         <action name="funcionalidad" class="com.admon.model.admon.FuncionalidadAction">
+            <result name="success">/jsp/admon/funcionalidad.jsp</result>
+        </action>    
+        
+        <action name="seguridadPerfil" class="com.admon.model.admon.SeguridadPerfilRolAction">
+            <result name="success">/jsp/admon/seguridadPerfil.jsp</result>
+        </action>      
+    </package>
+
+    <package name="reportes" namespace="/reportes" extends="default">
+        <action name="estadoCuenta" class="com.admon.model.reportes.EstadoCuentaAction">
+            <result name="success">/jsp/reportes/estadoCuenta.jsp</result>
+        </action>
+        <action name="estadoCuentaExportar" class="com.admon.model.reportes.EstadoCuentaExportarAction">
+            <result name='error'>/jsp/error.jsp</result>
+        </action>
+    </package>
+
+</struts>
+

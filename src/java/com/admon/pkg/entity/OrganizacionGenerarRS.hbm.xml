@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.admon.pkg.entity.OrganizacionGenerarRS">
+        <id name="organizacionGenerarId" type="java.lang.Integer" column="ORGANIZACION_GENERAR_ID"/>
+        <property name="organizacionId" type="java.lang.Integer" column="ORGANIZACION_ID"/>
+        <property name="descripcion" type="java.lang.String" column="DESCRIPCION"/>
+        <!--<property name="estatus" type="java.lang.String" column="ESTATUS"/>-->
+    </class>
+</hibernate-mapping>

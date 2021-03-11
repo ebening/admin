@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.admon.entity.admon.Organizacion" table="ORGANIZACION">
+    <id name="organizacionId" type="java.lang.Integer">
+      <column name="ORGANIZACION_ID"/>
+      <generator class="sequence">
+            <param name="sequence">ORGANIZACION_SEQ</param> 
+      </generator>
+    </id>
+    <property name="nombre" type="string">
+      <column name="NOMBRE"/>
+    </property>
+    <property name="nombreCorto" type="string">
+      <column name="NOMBRE_CORTO"/>
+    </property>
+    <property name="nombreComercial" type="string">
+      <column name="NOMBRE_COMERCIAL"/>
+    </property>
+    <property name="rfc" type="string">
+      <column name="RFC"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column name="DESCRIPCION"/>
+    </property>
+    <property name="nombreContacto" type="string">
+      <column name="NOMBRE_CONTACTO"/>
+    </property>
+    <property name="correoContacto" type="string">
+      <column name="CORREO_CONTACTO"/>
+    </property>
+    <property name="telefonoContacto" type="string">
+      <column name="TELEFONO_CONTACTO"/>
+    </property>
+    <property name="celularContacto" type="string">
+      <column name="CELULAR_CONTACTO"/>
+    </property>
+    <property name="direccion" type="string">
+      <column name="DIRECCION"/>
+    </property>
+    <property name="direccionAlternativa" type="string">
+      <column name="DIRECCION_ALTERNATIVA"/>
+    </property>
+    <property name="paisId" type="java.lang.Integer">
+      <column name="PAIS_ID"/>
+    </property>
+    <property name="estadoId" type="java.lang.Integer">
+      <column name="ESTADO_ID"/>
+    </property>
+    <property name="ciudadId" type="java.lang.Integer">
+      <column name="CIUDAD_ID"/>
+    </property>
+    <property name="creaEventosId" type="java.lang.Integer">
+      <column name="CREA_EVENTOS_ID"/>
+    </property>
+    <property name="servicioCompletoId" type="java.lang.Integer">
+      <column name="SERVICIO_COMPLETO_ID"/>
+    </property>
+    <property name="eliminadoId" type="java.lang.Integer">
+      <column name="ELIMINADO_ID"/>
+    </property>
+    <property name="creacionFecha" type="timestamp">
+      <column name="CREACION_FECHA"/>
+    </property>
+    <property name="creacionUsuario" type="java.lang.Integer">
+      <column name="CREACION_USUARIO"/>
+    </property>
+    <property name="modificacionFecha" type="timestamp">
+      <column name="MODIFICACION_FECHA"/>
+    </property>
+    <property name="modificacionUsuario" type="java.lang.Integer">
+      <column name="MODIFICACION_USUARIO"/>
+    </property>
+  </class>
+</hibernate-mapping>

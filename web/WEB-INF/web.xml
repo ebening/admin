@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<web-app version='2.5' xmlns='http://java.sun.com/xml/ns/javaee' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd'>
+
+<!--
+NOTICE: When used in <web-app>, this tag (<display-name>) provides a short name for the application
+which will be displayed in the Tomcat Manager application.
+-->
+<display-name>admon</display-name>
+
+<!-- START GZIP -->
+<filter>
+<filter-name>PJLFilter</filter-name>
+<filter-class>com.planetj.servlet.filter.compression.CompressingFilter</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>PJLFilter</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+<!-- END GZIP -->
+
+<!-- START OF STRUTS 2 -->
+<!--
+NOTICE: The ActionContextCleanUp filter is optional and it is useful when integration has to be done with
+other technologies like SiteMash Plugin.
+-->
+<filter>
+<filter-name>struts-cleanup</filter-name>
+<filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>struts-cleanup</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+<!-- START SITEMESH STUFF -->
+<!--
+NOTICE: With Struts 2 makes sure to place SiteMesh before the FilterDispatcher filter in your web.xml.
+You will also want to have consideration for using ActionContextCleanUp filter. Since Struts 2.1.3,
+use StrutsPrepareAndExecuteFilter and corresponding clean up filters.
+-->
+<filter>
+<filter-name>sitemesh</filter-name>
+<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>sitemesh</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+<!-- END SITEMESH STUFF-->
+
+<!-- CONTINUE STRUTS 2 -->
+<filter>
+<filter-name>struts2</filter-name>
+<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>struts2</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+<!-- END STRUTS 2 -->
+
+<!-- START SPRING STUFF -->
+<listener>
+<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<listener>
+<listener-class>
+org.springframework.web.context.request.RequestContextListener
+</listener-class>
+</listener>
+<!-- END SPRING STUFF -->
+
+<!-- START DWR STUFF -->
+<servlet>
+<servlet-name>dwr</servlet-name>
+<servlet-class>org.directwebremoting.spring.DwrSpringServlet</servlet-class>
+<init-param>
+<param-name>debug</param-name>
+<param-value>true</param-value>
+</init-param>
+<init-param>
+<param-name>crossDomainSessionSecurity</param-name>
+<param-value>false</param-value>
+</init-param>
+</servlet>
+<servlet-mapping>
+<servlet-name>dwr</servlet-name>
+<url-pattern>/dwr/*</url-pattern>
+</servlet-mapping>
+<session-config>
+<session-timeout>180</session-timeout>
+</session-config>
+<!-- END DWR STUFF -->
+
+<!-- WEB.XML: STARTING PAGE -->
+<welcome-file-list>
+<welcome-file>jsp/seguridad/login.jsp</welcome-file>
+</welcome-file-list>
+
+</web-app>
+

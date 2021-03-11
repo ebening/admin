@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+http://www.directwebremoting.org/schema/spring-dwr
+http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+
+<!-- ============================= SESSION FACTORY =========================== -->
+<bean id="sessionFactory"
+class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+
+<!-- Hibernate Mappings-->
+<property name="mappingResources">
+<list>
+<value>com/admon/entity/admon/ClasificacionContra.hbm.xml</value>
+<value>com/admon/entity/admon/Configuracion.hbm.xml</value>
+<value>com/admon/entity/admon/ConfiguracionParametro.hbm.xml</value>
+<value>com/admon/entity/admon/Comision.hbm.xml</value>
+<value>com/admon/entity/admon/Estado.hbm.xml</value>
+<value>com/admon/entity/admon/Ciudad.hbm.xml</value>
+<value>com/admon/entity/admon/NombreContra.hbm.xml</value>
+<value>com/admon/entity/admon/Organizacion.hbm.xml</value>
+<value>com/admon/entity/admon/OrganizacionCredencial.hbm.xml</value>
+<value>com/admon/entity/admon/OrganizacionGenerar.hbm.xml</value>
+<value>com/admon/entity/admon/OrganizacionUsuario.hbm.xml</value>
+<value>com/admon/entity/admon/Pagina.hbm.xml</value>
+<value>com/admon/entity/admon/Pais.hbm.xml</value>
+<value>com/admon/entity/admon/Perfil.hbm.xml</value>
+<value>com/admon/entity/admon/PerfilPagina.hbm.xml</value>
+<value>com/admon/entity/admon/SubclasificacionContra.hbm.xml</value>
+<value>com/admon/entity/admon/Usuario.hbm.xml</value>
+<value>com/admon/entity/admon/SeguridadRol.hbm.xml</value>
+<value>com/admon/entity/admon/SeguridadRolRestriccionPar.hbm.xml</value>
+<value>com/admon/entity/admon/SeguridadPerfil.hbm.xml</value>
+<value>com/admon/entity/admon/SeguridadPerfilRol.hbm.xml</value>
+<value>com/admon/entity/reportes/Evento.hbm.xml</value>
+<value>com/admon/pkg/entity/EstadoCuentaRS.hbm.xml</value>
+<value>com/admon/pkg/entity/EstadoCuentaDetalleRS.hbm.xml</value>
+<value>com/admon/pkg/entity/OrganizacionGenerarRS.hbm.xml</value>
+<value>com/admon/pkg/mapping/REPORTES_PKG.hbm.xml</value>
+<value>com/admon/pkg/mapping/ORGANIZACION_PKG.hbm.xml</value>
+<value>com/admon/entity/admon/Aplicacion.hbm.xml</value>
+<value>com/admon/entity/admon/Lenguaje.hbm.xml</value>
+<value>com/admon/entity/admon/Catalogo.hbm.xml</value>
+<value>com/admon/entity/admon/CatalogoParametro.hbm.xml</value>
+<value>com/admon/entity/admon/CatalogoParametroLenguaje.hbm.xml</value>
+</list>
+</property>
+
+<!-- Hibernate Properties-->
+<property name="hibernateProperties">
+<props>
+<!-- Dialecto a utilizar -->
+<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+<!-- Indica si mostramos en consola las sentencias SQL ejecutadas por Hibernate o no -->
+<prop key="hibernate.show_sql">true</prop>
+<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+<!-- Indica si cierra automaticamente las sesiones que no fueron cerradas -->
+<prop key="hibernate.auto_close_session">true</prop>
+<!-- Indica si se libera la sesion despues de una transaccion -->
+<prop key="hibernate.release_mode">auto</prop>
+<!-- Conexion a la BD -->
+<prop key="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</prop>
+<!-- Permite el uso de secuencias para los ids de las tablas -->
+<prop key="hibernate.jdbc.use_get_generated_keys">true</prop>
+</props>
+</property>
+
+<!-- Referencia al data source-->
+<property name="dataSource" ref="dataSource" />
+
+</bean>
+
+<!-- DATA SOURCE -->
+<!--<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+
+    <property name="jndiName" value="jdbc/admon"/>    -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@187.160.64.153:1521:MSDEV"/>
+        <property name="username" value="ADMON"/>
+        <property name="password" value="Desarrollo1"/>
+        <property name="validationQuery" value="SELECT 1 FROM DUAL"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+    </bean>
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@10.18.0.85:1521:taasgodev"/>
+        <property name="username" value="TAASGO"/>
+        <property name="password" value="TSGUSRTSGDEV$03"/>
+        <property name="validationQuery" value="SELECT 1 FROM DUAL"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+    </bean>-->
+
+    <!-- DWR OBJECT DEFINITIONS -->
+    <dwr:configuration>
+        <dwr:convert type="exception" class="java.lang.Exception"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Grid" javascript="GridDWR"/>
+        <dwr:convert type="bean" class="com.admon.model.seguridad.LoginDWR" javascript="LoginDWR"/>
+        <dwr:convert type="bean" class="com.admon.model.seguridad.RecuperarContrasenaDWR" javascript="RecuperarContrasenaDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.ClasificacionContra" javascript="ClasificacionContraDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Configuracion" javascript="ConfiguracionDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.ConfiguracionParametro" javascript="ConfiguracionParametroDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Comision" javascript="ComisionDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Estado" javascript="EstadoDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Ciudad" javascript="CiudadDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.NombreContra" javascript="NombreContraDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Organizacion" javascript="OrganizacionDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.OrganizacionCredencial" javascript="OrganizacionCredencialDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.OrganizacionGenerar" javascript="OrganizacionGenerarDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.OrganizacionUsuario" javascript="OrganizacionUsuarioDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Pagina" javascript="PaginaDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Pais" javascript="PaisDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Perfil" javascript="PerfilDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.PerfilPagina" javascript="PerfilPaginaDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.SubclasificacionContra" javascript="SubclasificacionContraDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Usuario" javascript="UsuarioDWR"/>
+        <dwr:convert type="bean" class="com.admon.pkg.entity.EstadoCuentaRS" javascript="EstadoCuentaDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.reportes.Evento" javascript="EventoDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Lenguaje" javascript="LenguajeDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Catalogo" javascript="CatalogoDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.CatalogoParametro" javascript="CatalogoParametroDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.CatalogoParametroLenguaje" javascript="CatalogoParametroLenguajeDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.SeguridadRol" javascript="SeguridadRolDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Aplicacion" javascript="AplicacionDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Operacion" javascript="OperacionDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Modulo" javascript="ModuloDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.Funcionalidad" javascript="FuncionalidadDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.SeguridadRolRestriccionPar" javascript="SeguridadRolRestriccionParDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.SeguridadPerfil" javascript="SeguridadPerfilDWR"/>
+        <dwr:convert type="bean" class="com.admon.entity.admon.SeguridadPerfilRol" javascript="SeguridadPerfilRolDWR"/>
+    </dwr:configuration>
+
+    <!-- DWR OBJECT INJECTION -->
+    <bean id="loginDWR" class="com.admon.model.seguridad.LoginDWR">
+        <property name="loginBss" ref="loginBss"/>
+        <dwr:remote javascript="LoginDWR"></dwr:remote>
+    </bean>
+
+    <bean id="perfilUsuarioDWR" class="com.admon.model.seguridad.PerfilUsuarioDWR">
+        <property name="perfilUsuarioBss" ref="perfilUsuarioBss"/>
+        <dwr:remote javascript="PerfilUsuarioDWR"></dwr:remote>
+    </bean>
+
+    <bean id="recuperarContrasenaDWR" class="com.admon.model.seguridad.RecuperarContrasenaDWR">
+        <property name="recuperarContrasenaBss" ref="recuperarContrasenaBss"/>
+        <dwr:remote javascript="RecuperarContrasenaDWR"></dwr:remote>
+    </bean>
+
+    <bean id="clasificacionContraDWR" class="com.admon.model.admon.ClasificacionContraDWR">
+        <property name="clasificacionContraBss" ref="clasificacionContraBss"/>
+        <dwr:remote javascript="ClasificacionContraDWR"></dwr:remote>
+    </bean>
+
+    <bean id="configuracionDWR" class="com.admon.model.admon.ConfiguracionDWR">
+        <property name="configuracionBss" ref="configuracionBss"/>
+        <dwr:remote javascript="ConfiguracionDWR"></dwr:remote>
+    </bean>
+
+    <bean id="configuracionParametroDWR" class="com.admon.model.admon.ConfiguracionParametroDWR">
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <dwr:remote javascript="ConfiguracionParametroDWR"></dwr:remote>
+    </bean>
+
+    <bean id="comisionDWR" class="com.admon.model.admon.ComisionDWR">
+        <property name="comisionBss" ref="comisionBss"/>
+        <dwr:remote javascript="ComisionDWR"></dwr:remote>
+    </bean>
+
+    <bean id="estadoDWR" class="com.admon.model.admon.EstadoDWR">
+        <property name="estadoBss" ref="estadoBss"/>
+        <dwr:remote javascript="EstadoDWR"></dwr:remote>
+    </bean>
+
+    <bean id="ciudadDWR" class="com.admon.model.admon.CiudadDWR">
+        <property name="ciudadBss" ref="ciudadBss"/>
+        <dwr:remote javascript="CiudadDWR"></dwr:remote>
+    </bean>
+
+    <bean id="nombreContraDWR" class="com.admon.model.admon.NombreContraDWR">
+        <property name="nombreContraBss" ref="nombreContraBss"/>
+        <dwr:remote javascript="NombreContraDWR"></dwr:remote>
+    </bean>
+
+    <bean id="organizacionDWR" class="com.admon.model.admon.OrganizacionDWR">
+        <property name="organizacionBss" ref="organizacionBss"/>
+        <dwr:remote javascript="OrganizacionDWR"></dwr:remote>
+    </bean>
+
+    <bean id="organizacionCredencialDWR" class="com.admon.model.admon.OrganizacionCredencialDWR">
+        <property name="organizacionCredencialBss" ref="organizacionCredencialBss"/>
+        <dwr:remote javascript="OrganizacionCredencialDWR"></dwr:remote>
+    </bean>
+
+    <bean id="organizacionGenerarDWR" class="com.admon.model.admon.OrganizacionGenerarDWR">
+        <property name="organizacionGenerarBss" ref="organizacionGenerarBss"/>
+        <dwr:remote javascript="OrganizacionGenerarDWR"></dwr:remote>
+    </bean>
+    
+    <bean id="organizacionUsuarioDWR" class="com.admon.model.admon.OrganizacionUsuarioDWR">
+        <property name="organizacionUsuarioBss" ref="organizacionUsuarioBss"/>
+        <dwr:remote javascript="OrganizacionUsuarioDWR"></dwr:remote>
+    </bean>
+
+    <bean id="paginaDWR" class="com.admon.model.admon.PaginaDWR">
+        <property name="paginaBss" ref="paginaBss"/>
+        <dwr:remote javascript="PaginaDWR"></dwr:remote>
+    </bean>
+
+    <bean id="paisDWR" class="com.admon.model.admon.PaisDWR">
+        <property name="paisBss" ref="paisBss"/>
+        <dwr:remote javascript="PaisDWR"></dwr:remote>
+    </bean>
+    
+    <bean id="perfilDWR" class="com.admon.model.admon.PerfilDWR">
+        <property name="perfilBss" ref="perfilBss"/>
+        <dwr:remote javascript="PerfilDWR"></dwr:remote>
+    </bean>
+
+    <bean id="perfilPaginaDWR" class="com.admon.model.admon.PerfilPaginaDWR">
+        <property name="perfilPaginaBss" ref="perfilPaginaBss"/>
+        <dwr:remote javascript="PerfilPaginaDWR"></dwr:remote>
+    </bean>
+
+    <bean id="subclasificacionContraDWR" class="com.admon.model.admon.SubclasificacionContraDWR">
+        <property name="subclasificacionContraBss" ref="subclasificacionContraBss"/>
+        <dwr:remote javascript="SubclasificacionContraDWR"></dwr:remote>
+    </bean>
+
+    <bean id="usuarioDWR" class="com.admon.model.admon.UsuarioDWR">
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <dwr:remote javascript="UsuarioDWR"></dwr:remote>
+    </bean>
+
+    <bean id="estadoCuentaDWR" class="com.admon.model.reportes.EstadoCuentaDWR">
+        <property name="estadoCuentaBss" ref="estadoCuentaBss"/>
+        <property name="reportesPKGBss" ref="reportesPKGBss"/>
+        <dwr:remote javascript="EstadoCuentaDWR"></dwr:remote>
+    </bean>
+    <bean id="eventoDWR" class="com.admon.model.reportes.EventoDWR">
+        <property name="eventoBss" ref="eventoBss"  />
+        <dwr:remote javascript="EventoDWR"/>
+    </bean>
+    
+    <bean id="lenguajeDWR" class="com.admon.model.admon.LenguajeDWR">
+        <property name="lenguajeBss" ref="lenguajeBss"  />
+        <dwr:remote javascript="LenguajeDWR"/>
+    </bean>
+    <bean id="catalogoDWR" class="com.admon.model.admon.CatalogoDWR">
+        <property name="catalogoBss" ref="catalogoBss"  />
+        <dwr:remote javascript="CatalogoDWR"/>
+    </bean>
+    <bean id="catalogoParametroDWR" class="com.admon.model.admon.CatalogoParametroDWR">
+        <property name="catalogoParametroBss" ref="catalogoParametroBss"  />
+        <dwr:remote javascript="CatalogoParametroDWR"/>
+    </bean>
+    <bean id="catalogoParametroLenguajeDWR" class="com.admon.model.admon.CatalogoParametroLenguajeDWR">
+        <property name="catalogoParametroLenguajeBss" ref="catalogoParametroLenguajeBss"  />
+        <dwr:remote javascript="CatalogoParametroLenguajeDWR"/>
+    </bean>
+    <bean id="seguridadRolDWR" class="com.admon.model.admon.SeguridadRolDWR">
+        <property name="seguridadRolBss" ref="seguridadRolBss"/>
+        <dwr:remote javascript="SeguridadRolDWR"></dwr:remote>
+    </bean>
+    <bean id="aplicacionDWR" class="com.admon.model.admon.AplicacionDWR">
+        <property name="aplicacionBss" ref="aplicacionBss"/>
+        <dwr:remote javascript="AplicacionDWR"></dwr:remote>
+    </bean>
+    <bean id="operacionDWR" class="com.admon.model.admon.OperacionDWR">
+        <property name="operacionBss" ref="operacionBss"/>
+        <dwr:remote javascript="OperacionDWR"></dwr:remote>
+    </bean>
+    <bean id="moduloDWR" class="com.admon.model.admon.ModuloDWR">
+        <property name="moduloBss" ref="moduloBss"/>
+        <dwr:remote javascript="ModuloDWR"></dwr:remote>
+    </bean>
+    <bean id="funcionalidadDWR" class="com.admon.model.admon.FuncionalidadDWR">
+        <property name="funcionalidadBss" ref="funcionalidadBss"/>
+        <dwr:remote javascript="FuncionalidadDWR"></dwr:remote>
+    </bean>
+    <bean id="seguridadRolRestriccionParDWR" class="com.admon.model.admon.SeguridadRolRestriccionParDWR">
+        <property name="seguridadRestriccionesRolBss" ref="seguridadRolRestriccionParBss"/>
+        <dwr:remote javascript="SeguridadRolRestriccionParDWR"></dwr:remote>
+    </bean>
+    <bean id="seguridadPerfilDWR" class="com.admon.model.admon.SeguridadPerfilDWR">
+        <property name="seguridadPerfilBss" ref="seguridadPerfilBss"/>
+        <dwr:remote javascript="SeguridadPerfilDWR"></dwr:remote>
+    </bean>
+    <bean id="seguridadPerfilRolDWR" class="com.admon.model.admon.SeguridadPerfilRolDWR">
+        <property name="seguridadPerfilRolBss" ref="seguridadPerfilRolBss"/>
+        <dwr:remote javascript="SeguridadPerfilRolDWR"></dwr:remote>
+    </bean>      
+    <!-- BUSINESS OBJECT DEFINITIONS -->
+    <bean id="loginBss" class="com.admon.bss.seguridad.LoginBssImpl">
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="paginaBss" ref="paginaBss"/>
+        <property name="perfilBss" ref="perfilBss"/>
+        <property name="perfilPaginaBss" ref="perfilPaginaBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+    </bean>
+    <bean id="perfilUsuarioBss" class="com.admon.bss.seguridad.PerfilUsuarioBssImpl">
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="recuperarContrasenaBss" ref="recuperarContrasenaBss"/>
+    </bean>
+    <bean id="recuperarContrasenaBss" class="com.admon.bss.seguridad.RecuperarContrasenaBssImpl">
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+    </bean>
+
+    <bean id="clasificacionContraBss" class="com.admon.bss.admon.ClasificacionContraBssImpl">
+        <property name="clasificacionContraDAO" ref="clasificacionContraDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="configuracionBss" class="com.admon.bss.admon.ConfiguracionBssImpl">
+        <property name="configuracionDAO" ref="configuracionDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="configuracionParametroBss" class="com.admon.bss.admon.ConfiguracionParametroBssImpl">
+        <property name="configuracionParametroDAO" ref="configuracionParametroDAO"/>
+        <property name="configuracionBss" ref="configuracionBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="comisionBss" class="com.admon.bss.admon.ComisionBssImpl">
+        <property name="comisionDAO" ref="comisionDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="clasificacionContraBss" ref="clasificacionContraBss"/>
+        <property name="subclasificacionContraBss" ref="subclasificacionContraBss"/>
+        <property name="nombreContraBss" ref="nombreContraBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="estadoBss" class="com.admon.bss.admon.EstadoBssImpl">
+        <property name="estadoDAO" ref="estadoDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="paisBss" ref="paisBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="ciudadBss" class="com.admon.bss.admon.CiudadBssImpl">
+        <property name="ciudadDAO" ref="ciudadDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="paisBss" ref="paisBss"/>
+        <property name="estadoBss" ref="estadoBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="nombreContraBss" class="com.admon.bss.admon.NombreContraBssImpl">
+        <property name="nombreContraDAO" ref="nombreContraDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="clasificacionContraBss" ref="clasificacionContraBss"/>
+        <property name="subclasificacionContraBss" ref="subclasificacionContraBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="organizacionBss" class="com.admon.bss.admon.OrganizacionBssImpl">
+        <property name="organizacionDAO" ref="organizacionDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="organizacionCredencialBss" ref="organizacionCredencialBss"/>
+        <property name="organizacionGenerarBss" ref="organizacionGenerarBss"/>
+        <property name="organizacionUsuarioBss" ref="organizacionUsuarioBss"/>
+        <property name="paisBss" ref="paisBss"/>
+        <property name="estadoBss" ref="estadoBss"/>
+        <property name="ciudadBss" ref="ciudadBss"/>
+    </bean>
+
+    <bean id="organizacionCredencialBss" class="com.admon.bss.admon.OrganizacionCredencialBssImpl">
+        <property name="organizacionCredencialDAO" ref="organizacionCredencialDAO"/>
+        <property name="organizacionGenerarBss" ref="organizacionGenerarBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="organizacionGenerarBss" class="com.admon.bss.admon.OrganizacionGenerarBssImpl">
+        <property name="organizacionGenerarDAO" ref="organizacionGenerarDAO"/>
+        <property name="organizacionPKGDAO" ref="organizacionPKGDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="organizacionCredencialBss" ref="organizacionCredencialBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="organizacionUsuarioBss" class="com.admon.bss.admon.OrganizacionUsuarioBssImpl">
+        <property name="organizacionUsuarioDAO" ref="organizacionUsuarioDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="paginaBss" class="com.admon.bss.admon.PaginaBssImpl">
+        <property name="paginaDAO" ref="paginaDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="paisBss" class="com.admon.bss.admon.PaisBssImpl">
+        <property name="paisDAO" ref="paisDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="perfilBss" class="com.admon.bss.admon.PerfilBssImpl">
+        <property name="perfilDAO" ref="perfilDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="perfilPaginaBss" ref="perfilPaginaBss"/>
+    </bean>
+
+    <bean id="perfilPaginaBss" class="com.admon.bss.admon.PerfilPaginaBssImpl">
+        <property name="perfilPaginaDAO" ref="perfilPaginaDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="perfilBss" ref="perfilBss"/>
+        <property name="paginaBss" ref="paginaBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="subclasificacionContraBss" class="com.admon.bss.admon.SubclasificacionContraBssImpl">
+        <property name="subclasificacionContraDAO" ref="subclasificacionContraDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="clasificacionContraBss" ref="clasificacionContraBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+
+    <bean id="usuarioBss" class="com.admon.bss.admon.UsuarioBssImpl">
+        <property name="usuarioDAO" ref="usuarioDAO"/>
+        <property name="perfilPaginaBss" ref="perfilPaginaBss"/>
+        <property name="paginaBss" ref="paginaBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="perfilBss" ref="perfilBss"/>
+    </bean>
+
+    <bean id="reportesPKGBss" class="com.admon.pkg.bss.ReportesPKGBssImpl">
+        <property name="reportesPKGDAO" ref="reportesPKGDAO"/>
+    </bean>
+
+    <bean id="estadoCuentaBss" class="com.admon.bss.reportes.EstadoCuentaBssImpl">
+        <property name="estadoCuentaDAO" ref="estadoCuentaDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+        <property name="eventoBss" ref="eventoBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+    <bean id="estadoCuentaDetalleBss" class="com.admon.bss.reportes.EstadoCuentaDetalleBssImpl">
+        <property name="estadoCuentaDetalleDAO" ref="estadoCuentaDetalleDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+    <bean id="eventoBss" class="com.admon.bss.reportes.EventoBssImpl">
+        <property name="eventoDAO" ref="eventoDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+    </bean>
+    
+    <bean id="lenguajeBss" class="com.admon.bss.admon.LenguajeBssImpl">
+        <property name="lenguajeDAO" ref="lenguajeDAO"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+    </bean>
+    
+    <bean id="catalogoBss" class="com.admon.bss.admon.CatalogoBssImpl">
+        <property name="catalogoDAO" ref="catalogoDAO"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="catalogoParametroBss" ref="catalogoParametroBss"/>
+        <property name="catalogoParametroLenguajeBss" ref="catalogoParametroLenguajeBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+        <property name="lenguajeBss" ref="lenguajeBss"/>
+    </bean>
+    <bean id="catalogoParametroBss" class="com.admon.bss.admon.CatalogoParametroBssImpl">
+        <property name="catalogoParametroDAO" ref="catalogoParametroDAO"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="catalogoBss" ref="catalogoBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+    </bean>
+    <bean id="catalogoParametroLenguajeBss" class="com.admon.bss.admon.CatalogoParametroLenguajeBssImpl">
+        <property name="catalogoParametroLenguajeDAO" ref="catalogoParametroLenguajeDAO"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="catalogoParametroBss" ref="catalogoParametroBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+        <property name="lenguajeBss" ref="lenguajeBss"/>
+    </bean>
+    <bean id="aplicacionBss" class="com.admon.bss.admon.AplicacionBssImpl">
+        <property name="aplicacionDAO" ref="aplicacionDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+    </bean>
+    <bean id="seguridadRolBss" class="com.admon.bss.admon.SeguridadRolBssImpl">
+        <property name="seguridadRolDAO" ref="seguridadRolDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+        <property name="paginaBss" ref="paginaBss"/>
+    </bean>
+    <bean id="seguridadRolRestriccionParBss" class="com.admon.bss.admon.SeguridadRolRestriccionParBssImpl">
+        <property name="seguridadRestriccionesRolDAO" ref="seguridadRolRestriccionParDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="seguridadRolBss" ref="seguridadRolBss"/>
+        <property name="moduloBss" ref="moduloBss"/>
+    </bean>
+    <bean id="seguridadPerfilBss" class="com.admon.bss.admon.SeguridadPerfilBssImpl">
+        <property name="seguridadPerfilDAO" ref="seguridadPerfilDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+    <bean id="seguridadPerfilRolBss" class="com.admon.bss.admon.SeguridadPerfilRolBssImpl">
+        <property name="seguridadPerfilRolDAO" ref="seguridadPerfilRolDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="usuarioBss" ref="usuarioBss"/>
+    </bean>
+    <!-- DAO OBJECT DEFINITIONS -->
+    <bean id="clasificacionContraDAO" class="com.admon.dao.admon.ClasificacionContraDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="configuracionDAO" class="com.admon.dao.admon.ConfiguracionDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="configuracionParametroDAO" class="com.admon.dao.admon.ConfiguracionParametroDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="comisionDAO" class="com.admon.dao.admon.ComisionDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="estadoDAO" class="com.admon.dao.admon.EstadoDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="ciudadDAO" class="com.admon.dao.admon.CiudadDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="nombreContraDAO" class="com.admon.dao.admon.NombreContraDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="organizacionDAO" class="com.admon.dao.admon.OrganizacionDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="organizacionCredencialDAO" class="com.admon.dao.admon.OrganizacionCredencialDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="organizacionGenerarDAO" class="com.admon.dao.admon.OrganizacionGenerarDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="organizacionUsuarioDAO" class="com.admon.dao.admon.OrganizacionUsuarioDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="paginaDAO" class="com.admon.dao.admon.PaginaDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="paisDAO" class="com.admon.dao.admon.PaisDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="perfilDAO" class="com.admon.dao.admon.PerfilDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="perfilPaginaDAO" class="com.admon.dao.admon.PerfilPaginaDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="subclasificacionContraDAO" class="com.admon.dao.admon.SubclasificacionContraDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="usuarioDAO" class="com.admon.dao.admon.UsuarioDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="estadoCuentaDAO" class="com.admon.dao.reportes.EstadoCuentaDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="estadoCuentaDetalleDAO" class="com.admon.dao.reportes.EstadoCuentaDetalleDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="eventoDAO" class="com.admon.dao.reportes.EventoDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="organizacionPKGDAO" class="com.admon.pkg.dao.OrganizacionPKGDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lenguajeDAO" class="com.admon.dao.admon.LenguajeDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="catalogoDAO" class="com.admon.dao.admon.CatalogoDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="catalogoParametroDAO" class="com.admon.dao.admon.CatalogoParametroDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="catalogoParametroLenguajeDAO" class="com.admon.dao.admon.CatalogoParametroLenguajeDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="seguridadRolDAO" class="com.admon.dao.admon.SeguridadRolDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>   
+    </bean>
+    <bean id="operacionDAO" class="com.admon.dao.admon.OperacionDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="funcionalidadDAO" class="com.admon.dao.admon.FuncionalidadDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="seguridadRolRestriccionParDAO" class="com.admon.dao.admon.SeguridadRolRestriccionParDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="seguridadPerfilDAO" class="com.admon.dao.admon.SeguridadPerfilDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="seguridadPerfilRolDAO" class="com.admon.dao.admon.SeguridadPerfilRolDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!-- Reportes -->
+    <bean id="reportesPKGDAO" class="com.admon.pkg.dao.ReportesPKGDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="aplicacionDAO" class="com.admon.dao.admon.AplicacionDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="moduloDAO" class="com.admon.dao.admon.ModuloDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <!-- DWR -->
+    <!-- Bss -->
+    
+    <bean id="operacionBss" class="com.admon.bss.admon.OperacionBss">
+        <property name="operacionDAO" ref="operacionDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+    </bean>
+    <bean id="moduloBss" class="com.admon.bss.admon.ModuloBss">
+        <property name="moduloDAO" ref="moduloDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+        <property name="organizacionBss" ref="organizacionBss"/>
+    </bean>
+    <bean id="funcionalidadBss" class="com.admon.bss.admon.FuncionalidadBss">
+        <property name="funcionalidadDAO" ref="funcionalidadDAO"/>
+        <property name="configuracionParametroBss" ref="configuracionParametroBss"/>
+    </bean>
+    
+</beans>

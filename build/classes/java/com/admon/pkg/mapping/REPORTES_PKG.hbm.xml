@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- Mapeo de los procedures/funciones de REPORTES_PKG -->
+    <!-- Function EDO_CTA -->
+    <sql-query name="estadoCuentaPRC" callable="true">
+        <return class="com.admon.pkg.entity.EstadoCuentaRS"/>
+        { call REPORTES_PKG.EDO_CTA(?, :fechaInicio, :fechaFin, :organizacionId, :eventoId)}
+    </sql-query>
+    <sql-query name="estadoCuentaDetallePRC" callable="true">
+        <return class="com.admon.pkg.entity.EstadoCuentaDetalleRS"/>
+        { call REPORTES_PKG.EDO_CTA_DETALLE(?, :fechaInicio, :fechaFin, :organizacionId, :eventoId)}
+    </sql-query>
+</hibernate-mapping>

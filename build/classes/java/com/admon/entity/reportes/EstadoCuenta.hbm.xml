@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.admon.entity.entity.EstadoCuenta">
+        <id name="organizacionId" type="java.lang.Integer" column="ORGANIZACION_ID"/>
+        <property name="eventoId" type="java.lang.Integer" column="EVENTO_ID"/>
+        
+        <property name="nombreRazonSocial" type="java.lang.String" column="NOMBRE_ORGANIZACION"/>
+        <property name="nombreComercial" type="java.lang.String" column="NOMBRE_COMERCIAL"/>
+        <property name="RFC" type="java.lang.String" column="RFC"/>
+        <property name="domicilio" type="java.lang.String" column="DIRECCION"/>
+        <property name="fechaLimitePago" type="java.sql.Date" column="FECHALIMITEPAGO"/>
+        
+        <property name="nombreOrganizacion" type="java.lang.String" column="NOMBRE_ORGANIZACION"/>
+        <property name="nombreEvento" type="java.lang.String" column="NOMBRE_EVENTO"/>
+        <property name="noBoletos" type="java.lang.Integer" column="NO_BOLETOS"/>
+        <property name="total" type="java.lang.Double" column="TOTAL"/>
+        <property name="monto" type="java.lang.Double" column="MONTO"/>
+        <property name="descuento" type="java.lang.Double" column="DESCUENTO"/>
+        <property name="cargoXServicio" type="java.lang.Double" column="CARGO_SERVICIO"/>
+        <property name="comisionTaasgo" type="java.lang.Double" column="GANANCIAS"/>
+        <property name="noCortesias" type="java.lang.Integer" column="BOLETOS_CORTESIA"/>
+        <property name="noCancelaciones" type="java.lang.Integer" column="BOLETOS_CANCELACION"/>
+        <property name="noBoletoDuro" type="java.lang.Integer" column="BOLETOS_DURO"/>
+        
+        <property name="IVA" type="java.lang.Double" column="IVA"/>
+        <property name="PorcentajeXCortesia" type="java.lang.Double" column="PORCENTAJEXCORTESIA"/>
+        <property name="PorcentajeXCancelacion" type="java.lang.Double" column="PORCENTAJEXCANCELACION"/>
+        <property name="PorcentajeXBoletoDuro" type="java.lang.Double" column="PORCENTAJEXBOLETODURO"/>
+    </class>
+</hibernate-mapping>
